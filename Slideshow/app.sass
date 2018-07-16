@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css?family=Syncopate')
+
+$font-stack: 'Syncopate', sans-serif
+
+
+=sliderBg($bg)
+	background: url($bg)
+	background-size: cover
+	width: 1299px
+	height: 500px
+	background-position: 50% 50%
+	position: absolute
+	z-index: 0
+
+=containerBox($border,$padding,$margin)
+	border: $border
+	padding: $padding
+	margin: $margin
+
+=displayFlex($dir,$justifyContent,$alignItem)
+	flex-direction: $dir
+	justify-content: $justifyContent
+	align-items: $alignItem
+	display: flex
+
+///////////////////////////
+header
+	h1
+		text-align: center
+main
+	display: flex
+	flex-direction: row
+	align-items: center
+	ul.slider
+		list-style-type: none
+		padding-left: 0 !important
+		position: relative
+		li.slider
+			+containerBox(2px solid black, 1em, 12px auto)
+			text-align: center
+		.slider-img1
+			+sliderBg("img/slide1.jpg")
+			transform: translateX(300px)	
+		.slider-img2
+			+sliderBg("img/slide2.jpeg")
+			transform: translateX(-1345px)
+		.slider-img3
+			+sliderBg("img/slide3.jpeg")	
+			transform: translateX(-1345px)	
+		h3
+			font-family: $font-stack	
+			font-size: 30px	
+			color: white
+		button.btn
+			+containerBox(transparent, 1em 26px, 12px auto)
+			background-color: #ffeb3b
+			box-shadow: 0px 0px 13px 0px rgba(255,255,255,255.75)
+			&:hover
+				cursor: pointer
+				transform: scale(1.1)
+				transition: transform .5s
+
+div.controls
+	+displayFlex(row,center,flex-end)
+	height: 600px
+
+.controls-icon
+	font-size: 34px !important
+	margin: 0 10px
+	&:hover
+		cursor: pointer
